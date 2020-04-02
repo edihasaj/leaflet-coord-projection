@@ -1,0 +1,21 @@
+{
+  "name": "mousecoordinates",
+  "version": "1.0.0",
+  "description": "Show coordinates on mousemove in Leaflet map. Ability to change from different projections (But this requires a proj4 object of projection).",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/edihasaj/mousecoordinates"
+  },
+  "keywords": [
+    "leaflet",
+    "mouse",
+    "coordinates",
+    "projections"
+  ],
+  "author": "Edi Hasaj",
+  "license": "MIT"
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Leaflet Coord Projection</title>
+	<meta charset="utf-8">
+  	<meta name="description" content="Leaflet Coord Projection">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	 <style>
+	   html, body, #map {
+	      height:100%;
+	      width:100%;
+	      padding:0px;
+	      margin:0px;
+	   }
+	</style>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.css" />
+	<link rel="stylesheet" href="https://edihasaj.github.io/leaflet-coord-projection/coord-projection.css"/>
+</head>
+<body>
+
+	<div id="map"></div>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.6.0/proj4.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/proj4leaflet/1.0.2/proj4leaflet.min.js"></script>
+	<script type="text/javascript" src="https://edihasaj.github.io/leaflet-coord-projection/coord-projection.js"></script>
+    
+    <script type="text/javascript">
+        let kosovarefCrs = new L.Proj.CRS('EPSG:7392',
+        '+title=Kosovaref01 +proj=tmerc +lat_0=0 +lon_0=21 +k=0.9999 +x_0=7500000 +y_0=0 +ellps=GRS80 +units=m +no_defs',
+        {
+            resolutions: [
+                559.9999, 280, 140,
+                55.99999999999999,
+                27.999999999999996,
+                13.999999999999998,
+                6.999999999999999,
+                2.8,
+                1.4,
+                0.7,
+                0.27999999999999997,
+                0.13999999999999999,
+                0.07
+            ],
+            bounds: L.bounds([7416000, 4632000], [7568000, 4796000]),
+            origin: [7416000, 4632000],
+            }
+        );
+
+	var map = new L.Map('map', {
+		center: [42.5564, 20.9030],
+		zoom: 9,
+	});
+        
+        new L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+            label: 'OpenStreetMap',
+            minZoom: 2,
+        }).addTo(map);
+
+	L.control.coordProjection({
+            crs: kosovarefCrs,
+        }).addTo(map);
+	</script>
+</body>
+</html>
