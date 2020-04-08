@@ -9,9 +9,12 @@ Show coordinates on mousemove in Leaflet map. Ability to change from different p
 
 # How to use ?
 ```
-L.control.coordProjection({
+let coordP = L.control.coordProjection({
     crs: kosovarefCrs,
 }).addTo(map);
+
+// change projection with:
+coordP.changeCrs(crs); // crs is string only if it's leaflet's official projections, otherwise it should be a proj4jsleaflet object.
 ```
 
 # Options
