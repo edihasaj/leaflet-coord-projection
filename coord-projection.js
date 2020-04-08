@@ -27,7 +27,8 @@ L.Control.coordProjection = L.Control.extend({
         let position = this._projectTo(this.options.crs, e.latlng, this.options.crsProjObject);
         
         if (this.options.crsProjObject || this.options.crs !== "EPSG4326") {
-            position = L.latLng(position.y, position.x);
+            position = L.latLng(position.x, position.y);
+            this.options.numDigits = 3;
         } else {
             this.options.numDigits = 6;
         }
@@ -59,15 +60,10 @@ L.Control.coordProjection = L.Control.extend({
         }
         return position;
       },
-  
+    
       changeCrs: function (crs) {
-          if (crs instanceof L.Proj.CRS) {
-  
-          }
-  
           this.options.crs = crs;
       }
-  
   });
   
   L.Map.mergeOptions({
