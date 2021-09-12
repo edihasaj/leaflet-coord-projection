@@ -4,7 +4,7 @@ Show coordinates on mousemove in Leaflet map. Ability to change from different p
 
 
 # Demo
-<a href="http://edihasaj.github.io/leaflet-coord-projection/">Demo Here</a>
+<a href="http://edihasaj.github.io/leaflet-coord-projection/">Demo Here</a> 
 
 
 # How to use ?
